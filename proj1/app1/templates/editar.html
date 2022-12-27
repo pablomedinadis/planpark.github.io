@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>PLAN&PARK</title> 
+  </head>
+  <body>
+    <style type="text/css">
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom:20px;
+          }
+    </style>
+    <div class="container" style="text-align: center">
+        <h1>Plan&Park</h1>
+        <form method = "POST" action = "{% url 'modificar' user.id%}">
+            {% csrf_token %}
+        <table class="center">
+            <tr>
+                <td><input name="usuario" required value="{{user.usuario}}"></td>
+            </tr>
+
+            <tr>
+                <td><input name="passwd" required value="{{user.passwd}}"></td>
+            </tr>
+
+            <tr>
+                <td><input name="tel" required value="{{user.tel}}"></td>
+            </tr>
+
+            <tr>
+                <td><input name="mail" required value="{{user.mail}}"></td>
+            </tr>
+        </table>
+        <button class="btn btn-sn btn-info" type="submit"> Modificar </button>
+    </div>
+  </body>
+</html>
